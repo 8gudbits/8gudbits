@@ -40,7 +40,7 @@
       </a></th>
     </tr>
   </table>
-  <h4> 🏆 GitHub Stats</h4>
+  <h4> :octocat: GitHub Stats</h4>
   <table>
     <tr><th></th><th></th></tr>
     <tr>
@@ -54,10 +54,10 @@
     <tr><td></td><td></td></tr>
     <tr>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
-        <img alt="Github Trophy" src="https://github-profile-trophy.vercel.app/?username=TechWhizKid&column=4&margin-w=3&margin-h=3&theme=dracula&no-frame=true">
+        <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=500&langs_count=12&hide_border=true&theme=dracula">
       </a></td>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
-        <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=500&langs_count=12&hide_border=true&theme=dracula">
+        <img alt="Github Trophy" src="https://github-profile-trophy.vercel.app/?username=TechWhizKid&column=4&margin-w=6&margin-h=6&theme=dracula&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience,Issues,Reviews">
       </a></td>
     </tr>
     <tr><td></td><td></td></tr>
