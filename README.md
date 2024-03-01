@@ -17,23 +17,35 @@
       <th><a href="https://www.python.org/">
         <img src="./images/python.png" alt="Python" width="32">
       </a></th>
+      <th><a href="https://en.wikipedia.org/wiki/C_(programming_language)">
+        <img src="./images/c.png" alt="C" width="32">
+      </a></th>
       <th><a href="https://en.wikipedia.org/wiki/Batch_file">
         <img src="./images/batch.png" alt="Batch" width="32">
       </a></th>
       <th><a href="https://learn.microsoft.com/en-us/powershell/">
         <img src="./images/powershell.png" alt="PowerShell" width="32">
       </a></th>
-      <th><a href="https://en.wikipedia.org/wiki/Linux">
-        <img src="./images/linux.png" alt="Linux" width="32">
-      </a></th>
+    </tr>
+    <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+    <tr>
       <th><a href="https://www.gnu.org/software/bash/">
         <img src="./images/bash.png" alt="Bash" width="32">
+      </a></th>
+      <th><a href="https://en.wikipedia.org/wiki/Linux">
+        <img src="./images/linux.png" alt="Linux" width="32">
       </a></th>
       <th><a href="https://git-scm.com/">
         <img src="./images/git.png" alt="Git" width="32">
       </a></th>
       <th><a href="https://www.docker.com/">
         <img src="./images/docker.png" alt="Docker" width="32">
+      </a></th>
+      <th><a href="https://cmake.org/">
+        <img src="./images/cmake.png" alt="CMake" width="32">
+      </a></th>
+      <th><a href="https://www.gnu.org/software/make/">
+        <img src="./images/makefile.png" alt="GNU-Make" width="32">
       </a></th>
       <th><a href="https://code.visualstudio.com/">
         <img src="./images/vscode.png" alt="VSCode" width="32">
@@ -70,4 +82,3 @@
     <img alt="TechWhizKid/pyFlaskyServe" src="https://github-readme-stats.vercel.app/api/pin/?username=TechWhizKid&hide_border=true&theme=dracula&repo=pyFlaskyServe">
   </a>
 </div>
-
