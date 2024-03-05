@@ -20,6 +20,9 @@
       <th><a href="https://en.wikipedia.org/wiki/C_(programming_language)">
         <img src="./images/c.png" alt="C" width="32">
       </a></th>
+      <th><a href="https://en.wikipedia.org/wiki/C%2B%2B">
+        <img src="./images/cpp.png" alt="C++" width="32">
+      </a></th>
       <th><a href="https://en.wikipedia.org/wiki/Batch_file">
         <img src="./images/batch.png" alt="Batch" width="32">
       </a></th>
@@ -27,7 +30,7 @@
         <img src="./images/powershell.png" alt="PowerShell" width="32">
       </a></th>
     </tr>
-    <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+    <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
     <tr>
       <th><a href="https://www.gnu.org/software/bash/">
         <img src="./images/bash.png" alt="Bash" width="32">
@@ -41,6 +44,9 @@
       <th><a href="https://www.docker.com/">
         <img src="./images/docker.png" alt="Docker" width="32">
       </a></th>
+      <th><a href="https://en.wikipedia.org/wiki/SQL">
+        <img src="./images/sql.png" alt="SQL" width="32">
+      </a></td>
       <th><a href="https://cmake.org/">
         <img src="./images/cmake.png" alt="CMake" width="32">
       </a></th>
@@ -66,7 +72,7 @@
     <tr><td></td><td></td></tr>
     <tr>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
-        <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=500&langs_count=12&hide_border=true&theme=dracula">
+        <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=500&langs_count=14&hide_border=true&theme=dracula">
       </a></td>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
         <img alt="Github Trophy" src="https://github-profile-trophy.vercel.app/?username=TechWhizKid&column=4&margin-w=6&margin-h=6&theme=dracula&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience,Issues,Reviews">
@@ -82,3 +88,4 @@
     <img alt="TechWhizKid/pyFlaskyServe" src="https://github-readme-stats.vercel.app/api/pin/?username=TechWhizKid&hide_border=true&theme=dracula&repo=pyFlaskyServe">
   </a>
 </div>
+
