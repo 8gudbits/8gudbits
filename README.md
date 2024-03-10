@@ -32,11 +32,11 @@
     </tr>
     <tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
     <tr>
+      <th><a href="https://en.wikipedia.org/wiki/VBScript">
+        <img src="./images/vbs.png" width="27" alt="VBScript">
+      </a></th>
       <th><a href="https://www.gnu.org/software/bash/">
         <img src="./images/bash.png" alt="Bash" width="32">
-      </a></th>
-      <th><a href="https://en.wikipedia.org/wiki/Linux">
-        <img src="./images/linux.png" alt="Linux" width="32">
       </a></th>
       <th><a href="https://git-scm.com/">
         <img src="./images/git.png" alt="Git" width="32">
