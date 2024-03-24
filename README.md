@@ -63,16 +63,16 @@
     <tr><th></th><th></th></tr>
     <tr>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
-        <img alt="GitHub Streak" src="https://github-readme-streak-stats.herokuapp.com?user=TechWhizKid&theme=highcontrast&hide_border=true&card_width=500&background=45%2CE96443%2C904E95">
+        <img alt="GitHub Streak" src="https://github-readme-streak-stats.herokuapp.com?user=TechWhizKid&theme=highcontrast&hide_border=true&card_width=500&theme=dracula">
       </a></td>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
-        <img alt="GitHub Stats Card" src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&card_width=500&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&bg_color=30,e96443,904e95&title_color=fff&text_color=fff&line_height=25)](https://github.com/TechWhizKid/">
+        <img alt="GitHub Stats Card" src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&card_width=500&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&theme=dracula&line_height=25)](https://github.com/TechWhizKid/">
       </a></td>
     </tr>
     <tr><td></td><td></td></tr>
     <tr>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
-        <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=500&langs_count=14&hide_border=true&theme=dracula">
+        <img alt="Top Languages" src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=500&langs_count=12&hide_border=true&theme=dracula">
       </a></td>
       <td><a href="https://github.com/TechWhizKid?tab=repositories">
         <img alt="Github Trophy" src="https://github-profile-trophy.vercel.app/?username=TechWhizKid&column=4&margin-w=6&margin-h=6&theme=dracula&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience,Issues,Reviews">
