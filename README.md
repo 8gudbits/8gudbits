@@ -75,7 +75,7 @@
       </th>
       <th>
         <a href="https://github.com/TechWhizKid?tab=repositories">
-          <img src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&hide=prs,contribs&show=reviews&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&line_height=26&theme=dracula">
+          <img src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&hide=prs,contribs&show=reviews&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&line_height=26&rank_icon=github&theme=dracula">
         </a>
       </th>
     </tr>
