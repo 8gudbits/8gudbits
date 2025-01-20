@@ -8,8 +8,8 @@
     <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white" alt="Instagram">
   </a>
   <br>
-  <a href="https://visitor-badge.laobi.icu/#docs">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=TechWhizKid.TechWhizKid&left_text=Visitors&right_color=%235e8e70">
+  <a href="https://github.com/Nathan13888/VisitorBadgeReloaded">
+    <img src="https://vbr.nathanchung.dev/badge?page_id=TechWhizKid&color=%235e8e70&lcolor=%23555555&logo=github">
   </a>
   <hr>
   <h2>👨🏻‍💻 Tech Stack</h2>
