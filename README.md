@@ -4,7 +4,7 @@
   <a href="https://facebook.com/user.noman">
     <img src="https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white" alt="Facebook">
   </a>
-  <a href="https://instagram.com/noman_ngl_">
+  <a href="https://instagram.com/namon.mess">
     <img src="https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white" alt="Instagram">
   </a>
   <br>
@@ -51,7 +51,7 @@
       <img src="https://img.shields.io/badge/tor-%237E4798.svg?style=flat-square&logo=tor-project&logoColor=white" alt="TOR">
       <img src="https://img.shields.io/badge/XFCE-%232284F2.svg?style=flat-square&logo=xfce&logoColor=white" alt="XFCE">
     </div>
-  <h2> :octocat: GitHub Stats</h2>
+  <h2> GitHub Stats</h2>
     <div>
       <a href="https://github.com/TechWhizKid?tab=repositories">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=700&langs_count=12&hide_border=true&theme=dracula">
@@ -62,20 +62,12 @@
       </a>
     </div>
   <hr>
-  <table>
-    <tr>
-      <th>
-        <a href="https://github.com/TechWhizKid?tab=repositories">
-          <img src="https://github-contributor-stats.vercel.app/api?username=TechWhizKid&limit=2&combine_all_yearly_contributions=true&hide_border=true&line_height=26&theme=dracula">
-        </a>
-      </th>
-      <th>
-        <a href="https://github.com/TechWhizKid?tab=repositories">
-          <img src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&hide=prs,contribs&show=reviews&show_icons=true&include_all_commits=true&count_private=true&hide_border=true&line_height=26&rank_icon=github&theme=dracula">
-        </a>
-      </th>
-    </tr>
-  </table>
+    <a href="https://github.com/TechWhizKid?tab=repositories">
+      <img src="https://github-contributor-stats.vercel.app/api?username=TechWhizKid&limit=2&combine_all_yearly_contributions=true&hide_border=true&line_height=27&theme=dracula&card_width=495px">
+    </a>
+    <a href="https://github.com/TechWhizKid?tab=repositories">
+      <img src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&hide=prs,contribs&show=reviews&show_icons=true&include_all_commits=true&hide_border=true&line_height=27&rank_icon=github&theme=dracula&card_width=495px">
+    </a>
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TechWhizKid/TechWhizKid/output/github-snake-dark.svg">
     <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TechWhizKid/TechWhizKid/output/github-snake.svg">
