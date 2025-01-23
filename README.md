@@ -54,10 +54,6 @@
   <h2> :octocat: GitHub Stats</h2>
     <div>
       <a href="https://github.com/TechWhizKid?tab=repositories">
-        <img src="https://github-readme-streak-stats.herokuapp.com?user=TechWhizKid&theme=highcontrast&hide_border=true&card_width=700&theme=dracula">
-      </a>
-      <br>
-      <a href="https://github.com/TechWhizKid?tab=repositories">
         <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=700&langs_count=12&hide_border=true&theme=dracula">
       </a>
       <br>
