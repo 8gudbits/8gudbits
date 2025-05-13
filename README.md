@@ -1,6 +1,6 @@
 <div align="center" style="text-align: center;">
-  <h1 align="center">Hello World! 🌍 Welcome to TechWhizKid's GitHub!</h1>
-  <p>🍕 Powered by caffeine and pizza, the ultimate coding fuel combo! ☕🍕</p>
+  <h1 align="center">Hello World! 🌍 Welcome to my Github Profile!</h1>
+  <p><b>My name is Noman and I like Python, C++, and ☕ Coffee.</b></p>
   <a href="https://facebook.com/user.noman">
     <img src="https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white" alt="Facebook">
   </a>
