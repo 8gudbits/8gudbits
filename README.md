@@ -9,7 +9,7 @@
   </a>
   <br>
   <a href="https://github.com/hehuapei/visitor-badge">
-    <img src="https://visitor-badge.laobi.icu/badge?page_id=TechWhizKid.TechWhizKid&right_color=%235e8e70&left_text=Visitors">
+    <img src="https://visitor-badge.laobi.icu/badge?page_id=8gudbits.8gudbits&right_color=%235e8e70&left_text=Visitors">
   </a>
   <hr>
   <h2>👨🏻‍💻 Tech Stack</h2>
@@ -22,7 +22,6 @@
       <img src="https://img.shields.io/badge/css3-%231572B6.svg?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
       <img src="https://img.shields.io/badge/javascript-%23323330.svg?style=flat-square&logo=javascript&logoColor=%23F7DF1E" alt="JavaScript">
       <img src="https://img.shields.io/badge/node.js-6DA55F?style=flat-square&logo=node.js&logoColor=white" alt="NodeJS">
-      <img src="https://img.shields.io/badge/java-%23ED8B00.svg?style=flat-square&logo=openjdk&logoColor=white" alt="Java">
       <img src="https://img.shields.io/badge/c-%2300599C.svg?style=flat-square&logo=c&logoColor=white" alt="C">
       <img src="https://img.shields.io/badge/c++-%2300599C.svg?style=flat-square&logo=c%2B%2B&logoColor=white" alt="C++">
       <img src="https://img.shields.io/badge/pocketbase-%23b8dbe4.svg?style=flat-square&logo=Pocketbase&logoColor=black" alt="PocketBase">
@@ -35,21 +34,17 @@
     </div>
   <h2> GitHub Stats</h2>
     <div>
-      <a href="https://github.com/TechWhizKid?tab=repositories">
-        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=TechWhizKid&layout=compact&card_width=700&langs_count=12&hide_border=true&theme=dracula">
+      <a href="https://github.com/8gudbits?tab=repositories">
+        <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=8gudbits&layout=compact&card_width=700&langs_count=12&hide_border=true&theme=dracula">
       </a>
       <br>
-      <a href="https://github.com/TechWhizKid?tab=repositories">
-        <img src="https://github-readme-stats.vercel.app/api?username=TechWhizKid&hide=prs,contribs&show=reviews&show_icons=true&include_all_commits=true&hide_border=true&line_height=27&rank_icon=github&theme=dracula&card_width=700">
-      </a>
-      <br>
-      <a href="https://github.com/TechWhizKid?tab=repositories">
-        <img src="https://github-profile-trophy.vercel.app/?username=TechWhizKid&column=6&margin-w=8&margin-h=8&theme=dracula&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience">
+      <a href="https://github.com/8gudbits?tab=repositories">
+        <img src="https://github-profile-trophy.vercel.app/?username=8gudbits&column=6&margin-w=8&margin-h=8&theme=dracula&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience">
       </a>
     </div>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/TechWhizKid/TechWhizKid/output/github-snake-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/TechWhizKid/TechWhizKid/output/github-snake.svg">
-    <img src="https://raw.githubusercontent.com/TechWhizKid/TechWhizKid/output/github-snake.svg">
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-snake-dark.svg">
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-snake.svg">
+    <img src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-snake.svg">
   </picture>
 </div>
