@@ -18,6 +18,7 @@
   <hr>
   <div>
     <h2>⚙ Tech Stack & GitHub Stats</h2>
+    <br>
     <img src="https://img.shields.io/badge/python-0d0f11?style=for-the-badge&logo=python&logoColor=white" alt="Python">
     <img src="https://img.shields.io/badge/flask-0d0f11.svg?style=for-the-badge&logo=flask&logoColor=white" alt="Flask">
     <img src="https://img.shields.io/badge/jinja-0d0f11.svg?style=for-the-badge&logo=jinja&logoColor=white" alt="Jinja">
@@ -43,8 +44,9 @@
   <hr>
   <div>
     <h2>🏆 Trophies & Commits</h2>
+    <br>
     <a href="https://github.com/8gudbits?tab=repositories">
-      <img src="https://github-profile-trophy.vercel.app/?username=8gudbits&column=6&margin-w=8&margin-h=8&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience&theme=onestar">
+      <img src="https://github-profile-trophy.vercel.app/?username=8gudbits&column=6&margin-w=8&margin-h=8&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience&theme=darkhub">
     </a>
     <br>
     <picture>
@@ -58,6 +60,6 @@
     </a>
   </div>
   <div>
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=000000,ffffff,000000&height=200&section=footer&text=Thanks%20for%20visiting!&fontColor=ffffff&fontSize=25&fontAlignY=65">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=000000,ffffff,000000&height=200&section=footer&text=Appreciate%20you%20stopping%20by!&fontColor=ffffff&fontSize=25&fontAlignY=65">
   </div>
 </div>
