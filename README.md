@@ -36,11 +36,11 @@
   <div>
     <h2>- Trophies & Stats -</h2>
     <br>
-    <a href="https://github.com/8gudbits?tab=repositories"><img style="min-width: 100%;" src="https://github-profile-trophy.vercel.app/?username=8gudbits&column=6&margin-w=8&margin-h=8&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience&theme=darkhub" alt="Trophies"></a>
+    <a href="https://github.com/8gudbits?tab=repositories"><img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-trophies.svg" alt="Trophies"></a>
     <br>
-    <a href="https://github.com/8gudbits?tab=repositories"><img style="min-width: 100%;" src="https://github-readme-stats.vercel.app/api/top-langs/?username=8gudbits&layout=compact&hide_border=true&card_width=700&langs_count=14&bg_color=050608&title_color=ffffff&text_color=ffffff" alt="Top Languages"></a>
+    <a href="https://github.com/8gudbits?tab=repositories"><img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/top-languages.svg" alt="Top Languages"></a>
     <br>
-    <a href="https://github.com/8gudbits"><img width="700px" src="https://github-readme-activity-graph.vercel.app/graph?username=8gudbits&theme=react-dark&bg_color=050608&hide_border=true&area=true&point=ffffff&days=30&radius=8&custom_title=⚡%20Activity%20Graph&height=350" alt="Activity Graph"></a>
+    <a href="https://github.com/8gudbits"><img width="700px" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/activity-graph.svg" alt="Activity Graph"></a>
     <br>
     <picture>
       <source style="min-width: 100%;" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-snake-dark.svg">
