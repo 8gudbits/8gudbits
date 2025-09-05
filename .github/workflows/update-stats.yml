@@ -1,4 +1,4 @@
-name: GitHub Readme Snake CI
+name: GitHub Readme CI
 
 on:
   schedule:
@@ -30,15 +30,15 @@ jobs:
 
       - name: Fetch GitHub Trophies
         run: |
-          curl -o "./dist/github-trophies.svg" "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&column=6&margin-w=8&margin-h=8&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience&theme=darkhub"
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 -o "./dist/github-trophies.svg" "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&column=6&margin-w=8&margin-h=8&no-frame=true&&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience&theme=darkhub" || echo "⚠️ Failed to fetch Trophies. Using old file if it exists."
 
       - name: Fetch Top Languages
         run: |
-          curl -o "./dist/top-languages.svg" "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_Owner }}&layout=compact&hide_border=true&card_width=700&langs_count=14&bg_color=050608&title_color=ffffff&text_color=ffffff"
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 -o "./dist/top-languages.svg" "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&hide_border=true&card_width=700&langs_count=14&bg_color=050608&title_color=ffffff&text_color=ffffff" || echo "⚠️ Failed to fetch Top Languages. Using old file."
 
       - name: Fetch Activity Graph
         run: |
-          curl -o "./dist/activity-graph.svg" "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&theme=react-dark&bg_color=050608&hide_border=true&area=true&point=ffffff&days=30&radius=8&custom_title=⚡%20Activity%20Graph&height=350"
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 -o "./dist/activity-graph.svg" "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&theme=react-dark&bg_color=050608&hide_border=true&area=true&point=ffffff&days=30&radius=8&custom_title=⚡%20Activity%20Graph&height=350" || echo "⚠️ Failed to fetch Activity Graph. Using old file."
 
       - name: Deploy to Output Branch
         uses: peaceiris/actions-gh-pages@v3

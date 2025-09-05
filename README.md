@@ -40,7 +40,7 @@
     <br>
     <a href="https://github.com/8gudbits?tab=repositories"><img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/top-languages.svg" alt="Top Languages"></a>
     <br>
-    <a href="https://github.com/8gudbits"><img width="700px" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/activity-graph.svg" alt="Activity Graph"></a>
+    <a href="https://github.com/8gudbits?tab=repositories"><img width="700px" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/activity-graph.svg" alt="Activity Graph"></a>
     <br>
     <picture>
       <source style="min-width: 100%;" media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-snake-dark.svg">
@@ -52,3 +52,4 @@
     <img src="https://capsule-render.vercel.app/api?type=waving&color=000000,ffffff,000000&height=200&section=footer" alt="Footer Image" style="min-width: 100%;">
   </div>
 </div>
+
