@@ -1,3 +1,9 @@
+// Cheeky console message
+console.log(
+  "%cYou're peeking under the hood.. I like you. 🔍👀",
+  "font-size: 18px; font-weight: bold; color: #ff3b30; background: #222; padding: 4px 8px; border-radius: 4px;"
+);
+
 // Custom cursor
 function initCustomCursor() {
   const cursor = document.getElementById("cursor");
@@ -14,31 +20,42 @@ function initCustomCursor() {
   let mouseY = 0;
   let followerX = 0;
   let followerY = 0;
+  let hasMoved = false;
+
+  // Start with hidden cursor
+  cursor.style.opacity = "0";
+  cursorFollower.style.opacity = "0";
 
   // Track mouse position
   document.addEventListener("mousemove", (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
 
+    // Make cursor visible only on first movement
+    if (!hasMoved) {
+      hasMoved = true;
+      cursor.style.opacity = "1";
+      cursorFollower.style.opacity = "1";
+    }
+
     // Position the main cursor
     cursor.style.left = `${mouseX - 10}px`;
     cursor.style.top = `${mouseY - 10}px`;
   });
 
-  // Animate follower with requestAnimationFrame
+  // Animate follower
   function animateFollower() {
-    // Ease the follower towards the cursor
-    followerX += (mouseX - followerX - 20) * 0.2;
-    followerY += (mouseY - followerY - 20) * 0.2;
+    if (hasMoved) {
+      followerX += (mouseX - followerX - 20) * 0.2;
+      followerY += (mouseY - followerY - 20) * 0.2;
 
-    // Position the follower
-    cursorFollower.style.left = `${followerX}px`;
-    cursorFollower.style.top = `${followerY}px`;
+      cursorFollower.style.left = `${followerX}px`;
+      cursorFollower.style.top = `${followerY}px`;
+    }
 
     requestAnimationFrame(animateFollower);
   }
 
-  // Start animation
   animateFollower();
 
   // Click effect
@@ -52,7 +69,7 @@ function initCustomCursor() {
     cursorFollower.classList.remove("click");
   });
 
-  // Hover effects for interactive elements
+  // Hover effects
   const hoverElements = document.querySelectorAll(
     "a, button, .project-card, .tech-item, .nav-btn, .mobile-nav-btn, .back-to-top"
   );
@@ -71,13 +88,9 @@ function initCustomCursor() {
 
   // Hide cursor when leaving window
   document.addEventListener("mouseleave", () => {
-    cursor.classList.add("hidden");
-    cursorFollower.classList.add("hidden");
-  });
-
-  document.addEventListener("mouseenter", () => {
-    cursor.classList.remove("hidden");
-    cursorFollower.classList.remove("hidden");
+    cursor.style.opacity = "0";
+    cursorFollower.style.opacity = "0";
+    hasMoved = false; // Reset so it reappears on next movement
   });
 }
 
@@ -106,11 +119,11 @@ function initParticleEffect() {
     let color;
 
     if (colorValue < 0.33) {
-      color = "#a78bfa"; // purple
+      color = "#ff3b30"; // red
     } else if (colorValue < 0.66) {
-      color = "#22d3ee"; // cyan
+      color = "#ff6257"; // light red
     } else {
-      color = "#f472b6"; // pink
+      color = "#d70015"; // dark red
     }
 
     // Random direction and distance
@@ -154,11 +167,25 @@ function initParticleEffect() {
   }
 }
 
-// Section selector functionality
+// Handle scroll indicator visibility
+function initScrollIndicator() {
+  const scrollIndicator = document.getElementById("scrollIndicator");
+
+  window.addEventListener("scroll", () => {
+    // Hide scroll indicator when user starts scrolling
+    if (window.pageYOffset > 50) {
+      scrollIndicator.classList.add("hidden");
+    } else {
+      scrollIndicator.classList.remove("hidden");
+    }
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize custom cursor effects
   initCustomCursor();
   initParticleEffect();
+  initScrollIndicator();
 
   const sections = document.querySelectorAll("section");
   const timelineItems = document.querySelectorAll(".timeline-item");
@@ -415,16 +442,20 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Animate project cards
-    projectCards.forEach((card) => {
+    // Animate project cards with staggered delay
+    projectCards.forEach((card, index) => {
       const isVisible = isInViewport(card, 0.85);
-      const wasVisible = elementVisibility.set(card, isVisible);
-      if (isVisible) {
-        setTimeout(() => {
-          card.classList.add("visible");
-        }, Math.random() * 300); // Staggered animation
-      } else {
-        card.classList.remove("visible");
+      const wasVisible = elementVisibility.get(card);
+
+      if (isVisible !== wasVisible) {
+        elementVisibility.set(card, isVisible);
+        if (isVisible) {
+          setTimeout(() => {
+            card.classList.add("visible");
+          }, index * 100); // Staggered animation
+        } else {
+          card.classList.remove("visible");
+        }
       }
     });
 
@@ -453,8 +484,8 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-    // Animate tech items
-    techItems.forEach((item) => {
+    // Animate tech items with staggered delay
+    techItems.forEach((item, index) => {
       const isVisible = isInViewport(item, 0.85);
       const wasVisible = elementVisibility.get(item);
 
@@ -463,7 +494,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (isVisible) {
           setTimeout(() => {
             item.classList.add("visible");
-          }, Math.random() * 300); // Staggered animation
+          }, index * 50); // Staggered animation
         } else {
           item.classList.remove("visible");
         }
@@ -527,9 +558,9 @@ document.addEventListener("DOMContentLoaded", function () {
   projectCards.forEach((card) => {
     card.addEventListener("mouseenter", () => {
       const colors = [
-        "rgba(167, 139, 250, 0.1)",
-        "rgba(34, 211, 238, 0.1)",
-        "rgba(244, 114, 182, 0.1)",
+        "rgba(255, 59, 48, 0.1)",
+        "rgba(255, 98, 87, 0.1)",
+        "rgba(215, 0, 21, 0.1)",
       ];
       const randomColor = colors[Math.floor(Math.random() * colors.length)];
       card.style.background = randomColor;
