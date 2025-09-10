@@ -228,6 +228,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     backToTop.addEventListener("click", () => {
+      if ("vibrate" in navigator) {
+        navigator.vibrate(50);
+      }
       window.scrollTo({
         top: 0,
         behavior: "smooth",
