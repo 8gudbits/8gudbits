@@ -71,7 +71,7 @@ function initCustomCursor() {
 
   // Hover effects
   const hoverElements = document.querySelectorAll(
-    "a, button, .project-card, .tech-item, .nav-btn, .mobile-nav-btn, .back-to-top"
+    "a, button, .tech-item, .nav-btn, .mobile-nav-btn, .back-to-top"
   );
 
   hoverElements.forEach((el) => {
@@ -181,11 +181,96 @@ function initScrollIndicator() {
   });
 }
 
+function initMobileNavHaptics() {
+  const navButtons = document.querySelectorAll(
+    ".mobile-nav-btn, #mobileMenuBtn"
+  );
+
+  navButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if ("vibrate" in navigator) {
+        navigator.vibrate(80);
+      }
+    });
+  });
+}
+
+function initTiltEffect() {
+  const glassPanels = document.querySelectorAll(".glass-panel");
+
+  glassPanels.forEach((panel) => {
+    // Store original transition in dataset
+    panel.dataset.originalTransition =
+      panel.style.transition || "transform 0.3s ease, box-shadow 0.3s ease";
+
+    let isFirstInteraction = true;
+
+    panel.addEventListener("mousemove", (e) => {
+      if (window.matchMedia("(pointer: coarse)").matches) return;
+
+      const rect = panel.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const percentX = (x - centerX) / centerX;
+      const percentY = (y - centerY) / centerY;
+
+      const maxTilt = 5;
+      const tiltX = (percentY * -maxTilt).toFixed(2);
+      const tiltY = (percentX * maxTilt).toFixed(2);
+
+      if (isFirstInteraction) {
+        panel.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
+        isFirstInteraction = false;
+
+        // Remove transition after the initial animation completes
+        setTimeout(() => {
+          panel.style.transition = "none";
+        }, 300);
+      }
+
+      panel.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg) translateZ(10px)`;
+
+      const shadowX = tiltY * 2;
+      const shadowY = tiltX * 2;
+      panel.style.boxShadow = `
+        ${shadowX}px ${shadowY}px 25px rgba(0, 0, 0, 0.4),
+        var(--glass-shadow)
+      `;
+    });
+
+    panel.addEventListener("mouseleave", () => {
+      isFirstInteraction = true; // Reset for next interaction
+
+      panel.style.transition =
+        "transform 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28), box-shadow 0.5s ease";
+
+      panel.style.transform =
+        "perspective(1000px) rotateX(0) rotateY(0) translateZ(0)";
+      panel.style.boxShadow = "var(--glass-shadow)";
+
+      // Restore original transition after animation completes
+      setTimeout(() => {
+        panel.style.transition = panel.dataset.originalTransition;
+      }, 500);
+    });
+
+    panel.addEventListener("mouseenter", () => {
+      panel.style.transition = "transform 0.3s ease, box-shadow 0.3s ease";
+    });
+  });
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize custom cursor effects
   initCustomCursor();
   initParticleEffect();
-  initScrollIndicator();
+  initScrollIndicator(); // Initialize scroll indicator
+  initMobileNavHaptics(); // Initialize mobile nav haptics
+  // initTiltEffect(); // Initialize tilt effect
 
   const sections = document.querySelectorAll("section");
   const timelineItems = document.querySelectorAll(".timeline-item");
@@ -229,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backToTop.addEventListener("click", () => {
       if ("vibrate" in navigator) {
-        navigator.vibrate(50);
+        navigator.vibrate(80);
       }
       window.scrollTo({
         top: 0,
@@ -555,23 +640,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
       ticking = true;
     }
-  });
-
-  // Add hover effects to project cards
-  projectCards.forEach((card) => {
-    card.addEventListener("mouseenter", () => {
-      const colors = [
-        "rgba(255, 59, 48, 0.1)",
-        "rgba(255, 98, 87, 0.1)",
-        "rgba(215, 0, 21, 0.1)",
-      ];
-      const randomColor = colors[Math.floor(Math.random() * colors.length)];
-      card.style.background = randomColor;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.background = "rgba(255, 255, 255, 0.05)";
-    });
   });
 });
 
