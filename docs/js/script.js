@@ -1,4 +1,4 @@
-// docs/js/script.js
+// js/script.js
 
 // Cheeky console message
 console.log(
@@ -181,6 +181,10 @@ function initScrollIndicator() {
 }
 
 function initMobileNavHaptics() {
+  const isTouchDevice = navigator.maxTouchPoints > 0;
+
+  if (!isTouchDevice) return; // Only apply on touch devices
+
   const navButtons = document.querySelectorAll(
     ".mobile-nav-btn, #mobileMenuBtn"
   );
@@ -188,6 +192,8 @@ function initMobileNavHaptics() {
   navButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       if ("vibrate" in navigator) {
+        tapSound.currentTime = 0;
+        tapSound.play();
         navigator.vibrate(95);
       }
     });
@@ -264,13 +270,6 @@ function initTiltEffect() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Initialize custom cursor effects
-  initCustomCursor();
-  initParticleEffect();
-  initScrollIndicator(); // Initialize scroll indicator
-  initMobileNavHaptics(); // Initialize mobile nav haptics
-  initTiltEffect(); // Initialize tilt effect
-
   const sections = document.querySelectorAll("section");
   const navButtons = document.querySelectorAll(".nav-btn");
   const mobileNavButtons = document.querySelectorAll(".mobile-nav-btn");
@@ -280,6 +279,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuIcon = mobileMenuBtn.querySelector("i");
   const backToTop = document.getElementById("backToTop");
   const scrollProgress = document.getElementById("scrollProgress");
+  const tapSound = document.getElementById("tapSound");
+
+  initCustomCursor();     // Initialize custom cursor effects
+  initParticleEffect();   // Initialize particle effects on click
+  initScrollIndicator();  // Initialize scroll indicator
+  initMobileNavHaptics(); // Initialize mobile nav haptics
+  initTiltEffect();       // Initialize tilt effect
 
   // Initialize scroll progress indicator
   function initScrollProgress() {
@@ -302,7 +308,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     backToTop.addEventListener("click", () => {
-      if ("vibrate" in navigator) {
+      const isTouchDevice = navigator.maxTouchPoints > 0;
+
+      if (isTouchDevice && "vibrate" in navigator) {
+        tapSound.currentTime = 0;
+        tapSound.play();
         navigator.vibrate(95);
       }
       window.scrollTo({
