@@ -1,10 +1,153 @@
-// js/script.js
+// scripts/script.js
 
 // Cheeky console message
 console.log(
   "%cYou're peeking under the hood.. I like you. 🔍👀",
   "font-size: 18px; font-weight: bold; color: #ff3b30; background: #222; padding: 4px 8px; border-radius: 4px;"
 );
+
+// Particle background and parallax effect
+(function () {
+  const canvas = document.getElementById("particle-canvas");
+  const ctx = canvas.getContext("2d");
+  const parallaxElem = document.getElementById("parallax");
+
+  let width, height;
+  let particles = [];
+  const particleCount = 25;
+  const maxDistance = 200;
+  const mouse = { x: null, y: null };
+
+  function resizeCanvas() {
+    width = canvas.width = canvas.offsetWidth;
+    height = canvas.height = canvas.offsetHeight;
+  }
+
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // Create particles
+  for (let i = 0; i < particleCount; i++) {
+    particles.push({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.5,
+      vy: (Math.random() - 0.5) * 0.5,
+    });
+  }
+
+  canvas.addEventListener("mousemove", (e) => {
+    const rect = canvas.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+
+  canvas.addEventListener("mouseleave", () => {
+    mouse.x = null;
+    mouse.y = null;
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (!parallaxElem) return;
+    let _w = window.innerWidth / 2;
+    let _h = window.innerHeight / 2;
+    let _mouseX = e.clientX;
+    let _mouseY = e.clientY;
+    let _depth1 = `${50 - (_mouseX - _w) * 0.01}% ${
+      50 - (_mouseY - _h) * 0.01
+    }%`;
+    let _depth2 = `${50 - (_mouseX - _w) * 0.02}% ${
+      50 - (_mouseY - _h) * 0.02
+    }%`;
+    let _depth3 = `${50 - (_mouseX - _w) * 0.06}% ${
+      50 - (_mouseY - _h) * 0.06
+    }%`;
+    let x = `${_depth3}, ${_depth2}, ${_depth1}`;
+    parallaxElem.style.backgroundPosition = x;
+  });
+
+  function updateVisuals() {
+    const heroSection = document.querySelector(".hero-section");
+    if (!heroSection || !parallaxElem) return;
+
+    const scrollY = window.scrollY;
+    const fadeStart = heroSection.offsetHeight * 0.8;
+    const fadeEnd = fadeStart + window.innerHeight;
+
+    // Parallax opacity
+    let parallaxOpacity = 0;
+    if (scrollY >= fadeStart && scrollY <= fadeEnd) {
+      parallaxOpacity = (scrollY - fadeStart) / (fadeEnd - fadeStart);
+    } else if (scrollY > fadeEnd) {
+      parallaxOpacity = 1;
+    }
+    parallaxElem.style.opacity = parallaxOpacity.toFixed(2);
+
+    // Canvas fade-out
+    let canvasOpacity = 1;
+    const canvasFadeEnd = fadeStart + 200;
+    if (scrollY >= fadeStart && scrollY <= canvasFadeEnd) {
+      canvasOpacity = 1 - (scrollY - fadeStart) / (canvasFadeEnd - fadeStart);
+    } else if (scrollY > canvasFadeEnd) {
+      canvasOpacity = 0;
+    }
+    canvas.style.opacity = canvasOpacity.toFixed(2);
+  }
+
+  window.addEventListener("scroll", updateVisuals);
+  window.addEventListener("resize", updateVisuals);
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    particles.forEach((p) => {
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > width) p.vx *= -1;
+      if (p.y < 0 || p.y > height) p.vy *= -1;
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+      ctx.fillStyle = "#ccc";
+      ctx.fill();
+    });
+
+    for (let i = 0; i < particleCount; i++) {
+      for (let j = i + 1; j < particleCount; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDistance) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.strokeStyle = `rgba(200,200,200,${1 - dist / maxDistance})`;
+          ctx.stroke();
+        }
+      }
+
+      if (mouse.x !== null && mouse.y !== null) {
+        const dx = particles[i].x - mouse.x;
+        const dy = particles[i].y - mouse.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+
+        if (dist < maxDistance) {
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(mouse.x, mouse.y);
+          ctx.strokeStyle = `rgba(255,255,255,${1 - dist / maxDistance})`;
+          ctx.stroke();
+        }
+      }
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
 
 // Custom cursor
 function initCustomCursor() {
@@ -280,12 +423,13 @@ document.addEventListener("DOMContentLoaded", function () {
   const backToTop = document.getElementById("backToTop");
   const scrollProgress = document.getElementById("scrollProgress");
   const tapSound = document.getElementById("tapSound");
+  tapSound.volume = 0.5; // Set volume to 50%
 
-  initCustomCursor();     // Initialize custom cursor effects
-  initParticleEffect();   // Initialize particle effects on click
-  initScrollIndicator();  // Initialize scroll indicator
+  initCustomCursor(); // Initialize custom cursor effects
+  initParticleEffect(); // Initialize particle effects on click
+  initScrollIndicator(); // Initialize scroll indicator
   initMobileNavHaptics(); // Initialize mobile nav haptics
-  initTiltEffect();       // Initialize tilt effect
+  initTiltEffect(); // Initialize tilt effect
 
   // Initialize scroll progress indicator
   function initScrollProgress() {
@@ -496,4 +640,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-

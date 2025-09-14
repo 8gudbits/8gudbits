@@ -7,12 +7,15 @@
     <title>8gudbits | Noman</title>
     <audio id="tapSound" src="audio/tap.wav" preload="auto"></audio>
     <!-- Font Awesome - 'all.min.css' locally available for faster loading -->
-    <link rel="stylesheet" href="css/all.min.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/transitions.css" />
-    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="styles/all.min.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="styles/transitions.css" />
+    <script defer src="scripts/script.js"></script>
   </head>
   <body>
+    <!-- Parallax background element -->
+    <div id="parallax"></div>
+
     <!-- Custom cursor elements -->
     <div class="cursor" id="cursor"></div>
     <div class="cursor-follower" id="cursorFollower"></div>
@@ -24,13 +27,6 @@
     <button class="back-to-top" id="backToTop" aria-label="Back to top">
       <i class="fas fa-arrow-up"></i>
     </button>
-
-    <!-- Fog effect -->
-    <div class="fog-container">
-      <div class="fog-layer"></div>
-      <div class="fog-layer"></div>
-      <div class="fog-layer"></div>
-    </div>
 
     <!-- Desktop Navigation (Full width to rounded) -->
     <div class="nav-container" id="navContainer">
@@ -94,6 +90,7 @@
 
       <!-- Hero Section -->
       <div class="hero-section">
+        <canvas id="particle-canvas"></canvas>
         <div class="hero">
           <h1>Independent Developer</h1>
           <p>Crafting tools, systems, and experiments</p>
@@ -462,7 +459,7 @@
         <p class="footer-text">
           This page was made using only HTML5, CSS3, and vanilla JavaScript. No
           frameworks. No build tools. Visit my GitHub to explore all the
-          projects behind it and beyond.
+          code behind it and beyond.
         </p>
         <a href="https://github.com/8gudbits" class="github-link" target="_blank">
           <i class="fab fa-github"></i> github.com/8gudbits
