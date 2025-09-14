@@ -34,7 +34,7 @@ body {
 }
 
 h1 {
-  white-space: nowrap;
+    white-space: nowrap;
 }
 
 /* === Custom cursor styles === */
@@ -548,15 +548,7 @@ header {
 
 section {
     margin-bottom: 4rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
     scroll-margin-top: 100px;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 h2 {
@@ -682,14 +674,6 @@ h2::after {
 .disclaimer {
     margin-top: 2rem;
     border-left: 4px solid rgba(255, 59, 48, 0.5);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.disclaimer.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .disclaimer p {
@@ -703,15 +687,7 @@ h2::after {
     text-align: center;
     max-width: 100%;
     margin: 0 auto;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
     position: relative;
-}
-
-.about.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .about p {
@@ -738,15 +714,7 @@ h2::after {
     height: 100px;
     text-align: center;
     padding: 1rem;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
     cursor: pointer;
-}
-
-.tech-item.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .tech-item i {
@@ -789,14 +757,6 @@ h2::after {
     position: relative;
     width: 45%;
     margin-bottom: 3rem;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-.timeline-item.visible {
-    opacity: 1;
-    transform: translateY(0);
 }
 
 .timeline-item:nth-child(odd) {
@@ -837,9 +797,6 @@ footer {
     margin-top: 4rem;
     border-top: 1px solid var(--glass-border);
     border-bottom: 1px solid var(--glass-border);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -847,20 +804,15 @@ footer {
     margin-bottom: 2rem;
 }
 
-footer.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .footer-text {
-  color: var(--text-secondary);
-  font-size: 0.95em;
-  line-height: 1.6;
-  margin: 0 auto 0.5rem;
-  max-width: 650px;
-  text-align: center;
-  padding: 0.5em 1em;
-  word-break: break-word;
+    color: var(--text-secondary);
+    font-size: 0.95em;
+    line-height: 1.6;
+    margin: 0 auto 0.5rem;
+    max-width: 650px;
+    text-align: center;
+    padding: 0.5em 1em;
+    word-break: break-word;
 }
 
 .github-link {
@@ -892,7 +844,7 @@ footer.visible {
     :root {
         --base-font-size: 0.9rem;
     }
-    
+
     .section-selector {
         padding: 1rem;
         gap: 1rem;
@@ -908,7 +860,7 @@ footer.visible {
         width: 36px;
         height: 36px;
     }
-    
+
     .hero h1 {
         font-size: clamp(2rem, 8vw, 2.5rem);
     }
@@ -918,7 +870,7 @@ footer.visible {
     :root {
         --base-font-size: 0.85rem;
     }
-    
+
     .hero h1 {
         font-size: clamp(1.8rem, 8vw, 2.5rem);
     }
@@ -1011,7 +963,7 @@ footer.visible {
     :root {
         --base-font-size: 0.8rem;
     }
-    
+
     .hero h1 {
         font-size: clamp(1.6rem, 8vw, 2rem);
     }
@@ -1062,12 +1014,12 @@ footer.visible {
     section {
         margin-bottom: 3rem;
     }
-    
+
     .tech-item {
         width: 80px;
         height: 80px;
     }
-    
+
     .tech-item i {
         font-size: 1.8rem;
     }
@@ -1078,7 +1030,7 @@ footer.visible {
     :root {
         --base-font-size: 0.75rem;
     }
-    
+
     .about p {
         font-size: clamp(0.9rem, 3vw, 1rem);
         line-height: 1.6;
@@ -1108,13 +1060,13 @@ footer.visible {
     .hero {
         margin-top: -40px;
     }
-    
+
     .tech-item {
         width: 70px;
         height: 70px;
         gap: 0.5rem;
     }
-    
+
     .tech-item i {
         font-size: 1.5rem;
     }
