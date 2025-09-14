@@ -1,4 +1,4 @@
-/* css/style.css */
+/* styles/style.css */
 
 * {
     margin: 0;
@@ -8,7 +8,7 @@
 }
 
 :root {
-    --primary-bg: #0a0a0a;
+    --primary-bg: #1d1e22;
     --secondary-bg: #1a1a1a;
     --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.15);
@@ -33,6 +33,27 @@ body {
     user-select: none;
     -webkit-tap-highlight-color: transparent;
     font-size: var(--base-font-size);
+}
+
+/* === Parallax Background === */
+#parallax {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background-image: url("images/depth-3.png"),
+        url("../images/depth-2.png"),
+        url("../images/depth-1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position: 50% 50%;
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+}
+
+#parallax.loaded {
+    opacity: 1;
 }
 
 h1 {
@@ -97,67 +118,6 @@ h1 {
     pointer-events: none;
     opacity: 0;
     z-index: 9997;
-}
-
-/* === Gradient fog background === */
-.fog-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    overflow: hidden;
-    opacity: 0.4;
-}
-
-.fog-layer {
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    top: -50%;
-    left: -50%;
-    opacity: 0.2;
-    border-radius: 50%;
-    filter: blur(40px);
-    animation: drift 30s infinite linear;
-}
-
-.fog-layer:nth-child(1) {
-    background: radial-gradient(circle at center,
-            #ff3b30 0%,
-            transparent 50%);
-    animation-duration: 60s;
-}
-
-.fog-layer:nth-child(2) {
-    background: radial-gradient(circle at center,
-            #ff6257 0%,
-            transparent 50%);
-    animation-duration: 45s;
-    animation-delay: -15s;
-}
-
-.fog-layer:nth-child(3) {
-    background: radial-gradient(circle at center,
-            #d70015 0%,
-            transparent 50%);
-    animation-duration: 75s;
-    animation-delay: -30s;
-}
-
-@keyframes drift {
-    0% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    50% {
-        transform: translate(-10%, 10%) rotate(180deg);
-    }
-
-    100% {
-        transform: translate(0, 0) rotate(360deg);
-    }
 }
 
 /* === Scroll progress indicator === */
@@ -456,6 +416,8 @@ header {
     align-items: center;
     text-align: center;
     position: relative;
+    overflow: hidden;
+    z-index: 1;
     padding: 25vh 1rem 0 1rem;
 }
 
@@ -497,6 +459,15 @@ header {
     color: var(--text-secondary);
     max-width: 600px;
     margin: 0 auto;
+}
+
+#particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
 }
 
 /* === Scroll Down Indicator === */
@@ -1101,4 +1072,3 @@ footer {
         font-size: clamp(1.1rem, 3vw, 1.2rem);
     }
 }
-
