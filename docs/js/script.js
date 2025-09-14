@@ -1,3 +1,5 @@
+// docs/js/script.js
+
 // Cheeky console message
 console.log(
   "%cYou're peeking under the hood.. I like you. 🔍👀",
@@ -97,9 +99,6 @@ function initCustomCursor() {
 // Particle effect on click
 function initParticleEffect() {
   document.addEventListener("click", (e) => {
-    // Don't create particles on mobile
-    if (window.matchMedia("(pointer: coarse)").matches) return;
-
     // Create 5-8 particles on each click
     const particleCount = 5 + Math.floor(Math.random() * 4);
 
@@ -189,7 +188,7 @@ function initMobileNavHaptics() {
   navButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
       if ("vibrate" in navigator) {
-        navigator.vibrate(80);
+        navigator.vibrate(95);
       }
     });
   });
@@ -270,15 +269,9 @@ document.addEventListener("DOMContentLoaded", function () {
   initParticleEffect();
   initScrollIndicator(); // Initialize scroll indicator
   initMobileNavHaptics(); // Initialize mobile nav haptics
-  // initTiltEffect(); // Initialize tilt effect
+  initTiltEffect(); // Initialize tilt effect
 
   const sections = document.querySelectorAll("section");
-  const timelineItems = document.querySelectorAll(".timeline-item");
-  const techItems = document.querySelectorAll(".tech-item");
-  const aboutPanel = document.querySelector(".about");
-  const disclaimerPanel = document.querySelector(".disclaimer");
-  const footer = document.querySelector("footer");
-  const projectCards = document.querySelectorAll(".project-card");
   const navButtons = document.querySelectorAll(".nav-btn");
   const mobileNavButtons = document.querySelectorAll(".mobile-nav-btn");
   const navContainer = document.getElementById("navContainer");
@@ -287,10 +280,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const menuIcon = mobileMenuBtn.querySelector("i");
   const backToTop = document.getElementById("backToTop");
   const scrollProgress = document.getElementById("scrollProgress");
-  const lastTimelineItem = document.getElementById("last-timeline-item");
-
-  // Track which elements are currently visible
-  const elementVisibility = new Map();
 
   // Initialize scroll progress indicator
   function initScrollProgress() {
@@ -314,40 +303,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
     backToTop.addEventListener("click", () => {
       if ("vibrate" in navigator) {
-        navigator.vibrate(80);
+        navigator.vibrate(95);
       }
       window.scrollTo({
         top: 0,
         behavior: "smooth",
       });
     });
-  }
-
-  // Initialize visibility tracking
-  function initVisibilityTracking() {
-    // Sections
-    sections.forEach((section) => {
-      elementVisibility.set(section, false);
-    });
-
-    // Timeline items
-    timelineItems.forEach((item) => {
-      elementVisibility.set(item, false);
-    });
-
-    // Tech items
-    techItems.forEach((item) => {
-      elementVisibility.set(item, false);
-    });
-
-    // Project cards
-    projectCards.forEach((card) => {
-      elementVisibility.set(card, false);
-    });
-
-    // Other individual elements
-    if (aboutPanel) elementVisibility.set(aboutPanel, false);
-    if (disclaimerPanel) elementVisibility.set(disclaimerPanel, false);
   }
 
   // Handle scroll animation for navigation - smooth proportional animation
@@ -469,20 +431,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Check if element is in viewport with custom offset
-  function isInViewport(element, offset = 0) {
-    const rect = element.getBoundingClientRect();
-    return (
-      rect.top <=
-        (window.innerHeight || document.documentElement.clientHeight) *
-          offset &&
-      rect.bottom >= 0 &&
-      rect.left <=
-        (window.innerWidth || document.documentElement.clientWidth) &&
-      rect.right >= 0
-    );
-  }
-
   // Update active navigation button based on scroll position
   function updateActiveNav() {
     let currentSection = "";
@@ -515,115 +463,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Animate elements based on scroll position
   function animateOnScroll() {
-    // Animate sections
-    sections.forEach((section) => {
-      const isVisible = isInViewport(section, 0.85);
-      const wasVisible = elementVisibility.get(section);
-
-      if (isVisible !== wasVisible) {
-        elementVisibility.set(section, isVisible);
-        if (isVisible) {
-          section.classList.add("visible");
-        } else {
-          section.classList.remove("visible");
-        }
-      }
-    });
-
-    // Animate project cards with staggered delay
-    projectCards.forEach((card, index) => {
-      const isVisible = isInViewport(card, 0.85);
-      const wasVisible = elementVisibility.get(card);
-
-      if (isVisible !== wasVisible) {
-        elementVisibility.set(card, isVisible);
-        if (isVisible) {
-          setTimeout(() => {
-            card.classList.add("visible");
-          }, index * 100); // Staggered animation
-        } else {
-          card.classList.remove("visible");
-        }
-      }
-    });
-
-    // Animate timeline items with earlier trigger
-    timelineItems.forEach((item) => {
-      const isVisible = isInViewport(item, 0.7);
-      const wasVisible = elementVisibility.get(item);
-
-      if (isVisible !== wasVisible) {
-        elementVisibility.set(item, isVisible);
-        if (isVisible) {
-          item.classList.add("visible");
-
-          // If this is the last timeline item, show the footer too
-          if (item.id === "last-timeline-item") {
-            footer.classList.add("visible");
-          }
-        } else {
-          item.classList.remove("visible");
-
-          // If this is the last timeline item, hide the footer too
-          if (item.id === "last-timeline-item") {
-            footer.classList.remove("visible");
-          }
-        }
-      }
-    });
-
-    // Animate tech items with staggered delay
-    techItems.forEach((item, index) => {
-      const isVisible = isInViewport(item, 0.85);
-      const wasVisible = elementVisibility.get(item);
-
-      if (isVisible !== wasVisible) {
-        elementVisibility.set(item, isVisible);
-        if (isVisible) {
-          setTimeout(() => {
-            item.classList.add("visible");
-          }, index * 50); // Staggered animation
-        } else {
-          item.classList.remove("visible");
-        }
-      }
-    });
-
-    // Animate about panel
-    if (aboutPanel) {
-      const isVisible = isInViewport(aboutPanel, 0.85);
-      const wasVisible = elementVisibility.get(aboutPanel);
-
-      if (isVisible !== wasVisible) {
-        elementVisibility.set(aboutPanel, isVisible);
-        if (isVisible) {
-          aboutPanel.classList.add("visible");
-        } else {
-          aboutPanel.classList.remove("visible");
-        }
-      }
-    }
-
-    // Animate disclaimer panel
-    if (disclaimerPanel) {
-      const isVisible = isInViewport(disclaimerPanel, 0.85);
-      const wasVisible = elementVisibility.get(disclaimerPanel);
-
-      if (isVisible !== wasVisible) {
-        elementVisibility.set(disclaimerPanel, isVisible);
-        if (isVisible) {
-          disclaimerPanel.classList.add("visible");
-        } else {
-          disclaimerPanel.classList.remove("visible");
-        }
-      }
-    }
-
+    // Only keep the navigation update
     updateActiveNav();
   }
 
   // Initialize and set up scroll listener
-  initVisibilityTracking();
   initScrollProgress();
   initBackToTop();
   handleNavScroll();
