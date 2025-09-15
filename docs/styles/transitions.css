@@ -1,0 +1,46 @@
+/* styles/tansitions.css */
+
+/* Base styles for scroll-synced elements */
+.scroll-fade {
+    opacity: 0;
+    will-change: opacity, transform;
+}
+
+/* Directional transforms */
+.fade-up {
+    transform: translateY(30px);
+}
+
+.fade-down {
+    transform: translateY(-30px);
+}
+
+.fade-left {
+    transform: translateX(30px);
+}
+
+.fade-right {
+    transform: translateX(-30px);
+}
+
+/* Zoom effect */
+.scroll-zoom {
+    opacity: 0;
+    transform: scale(0.8);
+    will-change: opacity, transform;
+}
+
+/* Blur effect */
+.scroll-blur {
+    opacity: 0;
+    filter: blur(8px);
+    will-change: opacity, filter;
+}
+
+/* Tech item scroll effect */
+.tech-item.scroll-orbit {
+    opacity: 0;
+    transform: rotate(-15deg) translateX(60px) scale(0.9);
+    will-change: opacity, transform;
+}
+
