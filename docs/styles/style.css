@@ -40,7 +40,8 @@ body {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background-image: url("images/depth-3.png"),
+    background-image:
+        url("../images/depth-3.png"),
         url("../images/depth-2.png"),
         url("../images/depth-1.png");
     background-repeat: no-repeat;
@@ -462,12 +463,12 @@ header {
 }
 
 #particle-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
 }
 
 /* === Scroll Down Indicator === */
@@ -1019,7 +1020,7 @@ footer {
     }
 
     .hero h1 {
-        font-size: clamp(1.4rem, 8vw, 1.8rem);
+        font-size: clamp(1.3rem, 7vw, 1.9rem);
     }
 
     .hero p {
@@ -1072,3 +1073,4 @@ footer {
         font-size: clamp(1.1rem, 3vw, 1.2rem);
     }
 }
+
