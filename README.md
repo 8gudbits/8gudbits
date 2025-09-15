@@ -13,6 +13,9 @@
     <a href="https://discord.com/users/8gudbits">
       <img src="/assets/badges/discord.svg">
     </a>
+    <a href="https://www.8gudbits.dpdns.org">
+      <img src="/assets/badges/website.svg">
+    </a>
     <br>
     <a href="https://github.com/hehuapei/visitor-badge">
       <img src="https://visitor-badge.laobi.icu/badge?page_id=8gudbits.8gudbits&left_color=050608&right_color=050608&left_text=Guess%20what?%20You're%20visitor%20:">
