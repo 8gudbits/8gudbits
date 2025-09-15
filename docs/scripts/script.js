@@ -423,7 +423,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const backToTop = document.getElementById("backToTop");
   const scrollProgress = document.getElementById("scrollProgress");
   const tapSound = document.getElementById("tapSound");
-  tapSound.volume = 0.5; // Set volume to 50%
+
+  tapSound.volume = 0.45; // Set volume to 50%
 
   initCustomCursor(); // Initialize custom cursor effects
   initParticleEffect(); // Initialize particle effects on click
@@ -640,3 +641,4 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
