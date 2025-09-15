@@ -4,16 +4,16 @@
     <h1>Welcome to my Github Profile!</h1>
     <h5>My name is Noman and I like Python, C++, and ☕ Coffee.</h5>
     <br>
-    <a href="https://facebook.com/user.noman">
+    <a href="https://facebook.com/user.noman" target="_blank">
       <img src="/assets/badges/facebook.svg">
     </a>
-    <a href="https://instagram.com/namon.mess">
+    <a href="https://instagram.com/namon.mess" target="_blank">
       <img src="/assets/badges/instagram.svg">
     </a>
-    <a href="https://discord.com/users/8gudbits">
+    <a href="https://discord.com/users/8gudbits" target="_blank">
       <img src="/assets/badges/discord.svg">
     </a>
-    <a href="https://www.8gudbits.dpdns.org">
+    <a href="https://www.8gudbits.dpdns.org" target="_blank">
       <img src="/assets/badges/website.svg">
     </a>
     <br>
