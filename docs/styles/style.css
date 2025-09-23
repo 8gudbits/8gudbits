@@ -58,10 +58,6 @@ body {
     opacity: 1;
 }
 
-h1 {
-    white-space: nowrap;
-}
-
 /* === Custom cursor styles === */
 .cursor {
     position: fixed;
@@ -429,7 +425,12 @@ header {
 }
 
 .hero h1 {
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    white-space: nowrap;
+    max-width: 100%;
+}
+
+.hero h1 {
     margin-bottom: .5rem;
     background: linear-gradient(90deg,
             var(--accent-red),
@@ -835,10 +836,6 @@ footer {
         width: 36px;
         height: 36px;
     }
-
-    .hero h1 {
-        font-size: clamp(2rem, 8vw, 2.5rem);
-    }
 }
 
 @media (max-width: 768px) {
@@ -939,10 +936,6 @@ footer {
         --base-font-size: 0.8rem;
     }
 
-    .hero h1 {
-        font-size: clamp(1.6rem, 8vw, 2rem);
-    }
-
     .hero p {
         font-size: clamp(0.9rem, 4vw, 1rem);
     }
@@ -1000,6 +993,12 @@ footer {
     }
 }
 
+@media (max-width: 420px) {
+    .hero h1 {
+        white-space: normal;
+    }
+}
+
 /* === For very small phones === */
 @media (max-width: 380px) {
     :root {
@@ -1018,10 +1017,6 @@ footer {
         border: none;
         box-shadow: none;
         padding: 1rem 0;
-    }
-
-    .hero h1 {
-        font-size: clamp(1.3rem, 7vw, 1.9rem);
     }
 
     .hero p {
