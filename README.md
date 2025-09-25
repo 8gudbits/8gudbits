@@ -13,7 +13,7 @@
     <a href="https://discord.com/users/8gudbits" target="_blank">
       <img src="/assets/badges/discord.svg">
     </a>
-    <a href="https://www.8gudbits.dpdns.org" target="_blank">
+    <a href="https://www.8gudbits.qzz.io" target="_blank">
       <img src="/assets/badges/website.svg">
     </a>
     <br>
@@ -69,4 +69,5 @@
     <img src="/assets/svgfiles/footer_capsule.svg" style="min-width: 100%;">
   </div>
 </div>
+
 
