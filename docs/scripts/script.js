@@ -14,7 +14,8 @@ console.log(
 
   let width, height;
   let particles = [];
-  const particleCount = 25;
+  const isMobile = window.innerWidth < 480;
+  const particleCount = isMobile ? 18 : 30;
   const maxDistance = 200;
   const mouse = { x: null, y: null };
 
