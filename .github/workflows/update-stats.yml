@@ -32,7 +32,7 @@ jobs:
         run: |
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-trophies.svg" \
-            "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&column=6&margin-w=8&margin-h=8&no-frame=true&title=MultiLanguage,Commits,Repositories,Stars,Followers,Experience&theme=darkhub" \
+            "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&column=6&margin-w=8&margin-h=8&no-frame=true&title=MultiLanguage,Stars,Commits,Repositories,PullRequest,Followers&theme=darkhub" \
             || echo "⚠️ Failed to fetch Trophies."
 
       - name: 4. Fetch Top Languages
