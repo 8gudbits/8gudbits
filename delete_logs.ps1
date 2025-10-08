@@ -1,5 +1,5 @@
-# Set-ExecutionPolicy Unrestricted
-# .\delete_workflow_logs.ps1
+# Set-ExecutionPolicy Unrestricted; 
+# .\delete_logs.ps1
 param ([string]$Username = "8gudbits")
 
 $Repo = "$Username/$Username"
