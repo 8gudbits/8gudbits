@@ -559,7 +559,6 @@ h2::after {
     height: 100%;
     display: flex;
     flex-direction: column;
-    cursor: pointer;
     position: relative;
     overflow: hidden;
 }
