@@ -1,11 +1,5 @@
 // scripts/script.js
 
-// Cheeky console message
-console.log(
-  "%cYou're peeking under the hood.. I like you. 🔍👀",
-  "font-size: 18px; font-weight: bold; color: #ff3b30; background: #222; padding: 4px 8px; border-radius: 4px;"
-);
-
 // Particle background and parallax effect
 (function () {
   const canvas = document.getElementById("particle-canvas");
