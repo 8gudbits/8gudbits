@@ -1,0 +1,142 @@
+/* styles/estereggs.css */
+
+/* Tooltip for GitHub Link */
+.github-link {
+    position: relative;
+}
+
+.github-link::after {
+    content: "Go on, peek inside...";
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.github-link.show-tooltip::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Hero Toast Notification */
+.hero-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+    max-width: 400px;
+    width: 90%;
+}
+
+.hero-toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* About Toast Notification */
+.about-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+    max-width: 400px;
+    width: 90%;
+}
+
+.about-toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Speed Toast Notification */
+.speed-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow);
+    padding: 1rem 1.5rem;
+    color: var(--text-primary);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition-smooth);
+    max-width: 400px;
+    width: 90%;
+}
+
+.speed-toast.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sleep Mode Animation */
+.sleep-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 5s ease-in-out;
+    pointer-events: none;
+}
+
+.sleep-overlay.blur {
+    opacity: 0.3;
+    visibility: visible;
+    backdrop-filter: blur(10px);
+}
+
+.sleep-overlay.blank {
+    opacity: 1;
+    visibility: visible;
+    backdrop-filter: blur(20px);
+}
+
+.sleep-overlay.waking {
+    transition: all 0.3s ease-out !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+}
+
