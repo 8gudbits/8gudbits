@@ -1,6 +1,8 @@
 // scripts/script.js
 
-// Particle background and parallax effect
+// #########################################
+//  Particle background and parallax effect
+// #########################################
 (function () {
   const canvas = document.getElementById("particle-canvas");
   const ctx = canvas.getContext("2d");
@@ -144,7 +146,9 @@
   draw();
 })();
 
-// Custom cursor
+// ###############
+//  Custom cursor
+// ###############
 function initCustomCursor() {
   const cursor = document.getElementById("cursor");
   const cursorFollower = document.getElementById("cursorFollower");
@@ -234,7 +238,9 @@ function initCustomCursor() {
   });
 }
 
-// Particle effect on click
+// ##########################
+//  Particle effect on click
+// ##########################
 function initParticleEffect() {
   document.addEventListener("click", (e) => {
     // Create 5-8 particles on each click
@@ -256,11 +262,11 @@ function initParticleEffect() {
     let color;
 
     if (colorValue < 0.33) {
-      color = "#ff3b30"; // red
+      color = "#ff3b30";
     } else if (colorValue < 0.66) {
-      color = "#ff6257"; // light red
+      color = "#ff6257";
     } else {
-      color = "#d70015"; // dark red
+      color = "#d70015";
     }
 
     // Random direction and distance
@@ -304,7 +310,9 @@ function initParticleEffect() {
   }
 }
 
-// Handle scroll indicator visibility
+// ####################################
+//  Handle scroll indicator visibility
+// ####################################
 function initScrollIndicator() {
   const scrollIndicator = document.getElementById("scrollIndicator");
 
@@ -407,6 +415,8 @@ function initTiltEffect() {
   });
 }
 
+// =========================
+// =========================
 document.addEventListener("DOMContentLoaded", function () {
   const sections = document.querySelectorAll("section");
   const navButtons = document.querySelectorAll(".nav-btn");
@@ -419,7 +429,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const scrollProgress = document.getElementById("scrollProgress");
   const tapSound = document.getElementById("tapSound");
 
-  tapSound.volume = 0.45; // Set volume to 50%
+  tapSound.volume = 0.45; // Set volume to 45%
 
   initCustomCursor(); // Initialize custom cursor effects
   initParticleEffect(); // Initialize particle effects on click
