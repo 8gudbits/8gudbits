@@ -1,12 +1,13 @@
-// scripts/estereggs.js
+// scripts/extras.js
 
-// Cheeky console message
+// ##################
+//  Console messages
+// ##################
 console.log(
-  "%cPeeking under the hood huh..👀 I like you.",
+  "%cPeeking under the hood huh..👀 Noman likes you.",
   "font-size: 18px; font-weight: bold; color: #ff3b30; background: #222; padding: 4px 8px; border-radius: 4px;"
 );
 
-// Devtools log
 let devToolsTimer;
 
 function checkDevTools() {
@@ -18,7 +19,7 @@ function checkDevTools() {
       devToolsTimer = setTimeout(() => {
         console.log(
           "%cAnother presence has joined you. They're quiet... for now.",
-          "font-size: 16px; font-weight: bold; color: #ff3b30; background: #222; padding: 8px 12px; border-radius: 6px;"
+          "font-size: 18px; font-weight: bold; color: #ff3b30; background: #222; padding: 8px 12px; border-radius: 6px;"
         );
       }, 15000);
     }
@@ -30,7 +31,9 @@ function checkDevTools() {
 
 setInterval(checkDevTools, 1000);
 
-// GitHub Link Tooltip
+// #####################
+//  GitHub link tooltip
+// #####################
 let hoverTimer;
 
 document
@@ -48,7 +51,9 @@ document
     this.classList.remove("show-tooltip");
   });
 
-// Title Change on Tab Switch
+// ############################
+//  Title change on tab switch
+// ############################
 let originalTitle = document.title;
 
 document.addEventListener("visibilitychange", function () {
@@ -59,7 +64,9 @@ document.addEventListener("visibilitychange", function () {
   }
 });
 
-// Hero Section Scroll Toast
+// ####################
+//  Hero section toast
+// ####################
 let heroTimer;
 let toast = null;
 
@@ -84,7 +91,7 @@ function showToast() {
   toast = document.createElement("div");
   toast.className = "hero-toast";
   toast.textContent =
-    "You have been staring at this part of the page for way too long... come on, scroll now... :))";
+    "You have been staring at this part of the page for way too long. Come on, scroll now... :))";
   document.body.appendChild(toast);
 
   setTimeout(() => {
@@ -116,7 +123,9 @@ window.addEventListener("scroll", function () {
 
 checkHeroSection();
 
-// About Toast Notification
+// #####################
+//  About section toast
+// #####################
 let aboutTimer;
 let aboutToastShown = false;
 
@@ -169,7 +178,9 @@ function showAboutToast() {
 window.addEventListener("scroll", checkAboutSection);
 checkAboutSection();
 
-// Speed Toast Notification
+// ##########################
+//  Speed toast notification
+// ##########################
 let lastScrollTop = 0;
 let lastScrollTime = Date.now();
 let fastScrollDistance = 0;
@@ -221,55 +232,133 @@ function showSpeedToast() {
 
 window.addEventListener("scroll", checkScrollSpeed);
 
-// Sleep Mode Animation
+// ######################
+//  Sleep mode animation
+// ######################
 let sleepTimer;
 let blankTimer;
+let heartbeatTimer;
 let overlay = null;
 
 function initSleepMode() {
-    // Create overlay element
-    overlay = document.createElement('div');
-    overlay.className = 'sleep-overlay';
-    document.body.appendChild(overlay);
-    
-    resetSleepTimers();
-    
-    // Reset timers on any interaction
-    document.addEventListener('mousemove', wakePage);
-    document.addEventListener('keydown', wakePage);
-    document.addEventListener('click', wakePage);
-    document.addEventListener('scroll', wakePage);
-    document.addEventListener('touchstart', wakePage);
+  overlay = document.createElement("div");
+  overlay.className = "sleep-overlay";
+
+  // Create heartbeat monitor HTML
+  overlay.innerHTML = `
+        <div class="heart-rate">
+            <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="300px"
+                height="146px"
+                viewBox="0 0 150 73"
+            >
+                <polyline
+                    fill="none"
+                    stroke="#ff3b30"
+                    stroke-width="3"
+                    stroke-miterlimit="10"
+                    points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"
+                />
+            </svg>
+            <div class="fade-in"></div>
+            <div class="fade-out"></div>
+        </div>
+    `;
+
+  document.body.appendChild(overlay);
+  resetSleepTimers();
+
+  // Reset timers on any interaction
+  document.addEventListener("mousemove", wakePage);
+  document.addEventListener("keydown", wakePage);
+  document.addEventListener("click", wakePage);
+  document.addEventListener("scroll", wakePage);
+  document.addEventListener("touchstart", wakePage);
 }
 
 function resetSleepTimers() {
-    clearTimeout(sleepTimer);
-    clearTimeout(blankTimer);
-    
-    sleepTimer = setTimeout(() => {
-        startSleepAnimation();
-    }, 50000); // 50 seconds
+  clearTimeout(sleepTimer);
+  clearTimeout(blankTimer);
+  clearTimeout(heartbeatTimer);
+
+  sleepTimer = setTimeout(() => {
+    startSleepAnimation();
+  }, 50000); // 50 seconds until sleep starts
 }
 
 function startSleepAnimation() {
-    overlay.classList.add('blur');
-    
-    blankTimer = setTimeout(() => {
-        overlay.classList.remove('blur');
-        overlay.classList.add('blank');
-    }, 5000); // 5 seconds later go black
+  overlay.classList.add("blur");
+
+  blankTimer = setTimeout(() => {
+    overlay.classList.remove("blur");
+    overlay.classList.add("blank");
+
+    // Show heartbeat after blank screen
+    heartbeatTimer = setTimeout(() => {
+      overlay.classList.add("show-heartbeat");
+    }, 5000); // 5 seconds after going blank
+  }, 5000); // 5 seconds of blur
 }
 
 function wakePage() {
-    overlay.classList.add('waking');
-    overlay.classList.remove('blur', 'blank');
-    
-    setTimeout(() => {
-        overlay.classList.remove('waking');
-    }, 300);
-    
-    resetSleepTimers();
+  // Remove all sleep-related classes
+  overlay.classList.remove("blur", "blank", "show-heartbeat");
+  overlay.classList.add("waking");
+
+  setTimeout(() => {
+    overlay.classList.remove("waking");
+  }, 300);
+
+  resetSleepTimers();
 }
 
-document.addEventListener('DOMContentLoaded', initSleepMode);
+document.addEventListener("DOMContentLoaded", initSleepMode);
+
+// Keep screen on for 1.5 minutes of inactivity
+let wakeLock = null;
+let idleTimer = null;
+const idleTime = 90000;
+
+function startIdleTimer() {
+  if (idleTimer) clearTimeout(idleTimer);
+  if (wakeLock) {
+    wakeLock.release();
+    wakeLock = null;
+  }
+
+  idleTimer = setTimeout(keepScreenOn, idleTime);
+}
+
+async function keepScreenOn() {
+  if (!/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) return;
+
+  try {
+    if ("wakeLock" in navigator) {
+      wakeLock = await navigator.wakeLock.request("screen");
+    }
+  } catch (err) {
+    const video = document.createElement("video");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.style.display = "none";
+    document.body.appendChild(video);
+    video.play();
+  }
+}
+
+const events = [
+  "mousedown",
+  "mousemove",
+  "keypress",
+  "scroll",
+  "touchstart",
+  "click",
+];
+events.forEach((event) => {
+  document.addEventListener(event, startIdleTimer);
+});
+
+startIdleTimer();
 
