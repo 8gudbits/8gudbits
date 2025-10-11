@@ -130,6 +130,9 @@
     visibility: hidden;
     transition: all 5s ease-in-out;
     pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sleep-overlay.blur {
@@ -148,5 +151,69 @@
     transition: all 0.3s ease-out !important;
     opacity: 0 !important;
     visibility: hidden !important;
+}
+
+/* Heartbeat Monitor Styles */
+.heart-rate {
+    width: 300px;
+    height: 146px;
+    position: relative;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.sleep-overlay.show-heartbeat .heart-rate {
+    opacity: 1;
+}
+
+.fade-in {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    top: 0;
+    right: 0;
+    animation: heartRateIn 2.5s linear infinite;
+}
+
+.fade-out {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: 0;
+    left: -120%;
+    animation: heartRateOut 2.5s linear infinite;
+    background: linear-gradient(to right,
+            rgba(0, 0, 0, 1) 0%,
+            rgba(0, 0, 0, 1) 80%,
+            rgba(0, 0, 0, 0) 100%);
+}
+
+@keyframes heartRateIn {
+    0% {
+        width: 100%;
+    }
+
+    50% {
+        width: 0;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+@keyframes heartRateOut {
+    0% {
+        left: -120%;
+    }
+
+    30% {
+        left: -120%;
+    }
+
+    100% {
+        left: 0;
+    }
 }
 

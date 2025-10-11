@@ -237,13 +237,37 @@ window.addEventListener("scroll", checkScrollSpeed);
 // ######################
 let sleepTimer;
 let blankTimer;
+let heartbeatTimer;
 let overlay = null;
 
 function initSleepMode() {
   overlay = document.createElement("div");
   overlay.className = "sleep-overlay";
-  document.body.appendChild(overlay);
 
+  // Create heartbeat monitor HTML
+  overlay.innerHTML = `
+        <div class="heart-rate">
+            <svg
+                version="1.0"
+                xmlns="http://www.w3.org/2000/svg"
+                width="300px"
+                height="146px"
+                viewBox="0 0 150 73"
+            >
+                <polyline
+                    fill="none"
+                    stroke="#ff3b30"
+                    stroke-width="3"
+                    stroke-miterlimit="10"
+                    points="0,45.486 38.514,45.486 44.595,33.324 50.676,45.486 57.771,45.486 62.838,55.622 71.959,9 80.067,63.729 84.122,45.486 97.297,45.486 103.379,40.419 110.473,45.486 150,45.486"
+                />
+            </svg>
+            <div class="fade-in"></div>
+            <div class="fade-out"></div>
+        </div>
+    `;
+
+  document.body.appendChild(overlay);
   resetSleepTimers();
 
   // Reset timers on any interaction
@@ -257,10 +281,11 @@ function initSleepMode() {
 function resetSleepTimers() {
   clearTimeout(sleepTimer);
   clearTimeout(blankTimer);
+  clearTimeout(heartbeatTimer);
 
   sleepTimer = setTimeout(() => {
     startSleepAnimation();
-  }, 50000); // 50 seconds
+  }, 50000); // 50 seconds until sleep starts
 }
 
 function startSleepAnimation() {
@@ -269,12 +294,18 @@ function startSleepAnimation() {
   blankTimer = setTimeout(() => {
     overlay.classList.remove("blur");
     overlay.classList.add("blank");
-  }, 5000); // 5 seconds
+
+    // Show heartbeat after blank screen
+    heartbeatTimer = setTimeout(() => {
+      overlay.classList.add("show-heartbeat");
+    }, 5000); // 5 seconds after going blank
+  }, 5000); // 5 seconds of blur
 }
 
 function wakePage() {
+  // Remove all sleep-related classes
+  overlay.classList.remove("blur", "blank", "show-heartbeat");
   overlay.classList.add("waking");
-  overlay.classList.remove("blur", "blank");
 
   setTimeout(() => {
     overlay.classList.remove("waking");
