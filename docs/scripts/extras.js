@@ -316,3 +316,49 @@ function wakePage() {
 
 document.addEventListener("DOMContentLoaded", initSleepMode);
 
+// Keep screen on for 1.5 minutes of inactivity
+let wakeLock = null;
+let idleTimer = null;
+const idleTime = 90000;
+
+function startIdleTimer() {
+  if (idleTimer) clearTimeout(idleTimer);
+  if (wakeLock) {
+    wakeLock.release();
+    wakeLock = null;
+  }
+
+  idleTimer = setTimeout(keepScreenOn, idleTime);
+}
+
+async function keepScreenOn() {
+  if (!/Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent)) return;
+
+  try {
+    if ("wakeLock" in navigator) {
+      wakeLock = await navigator.wakeLock.request("screen");
+    }
+  } catch (err) {
+    const video = document.createElement("video");
+    video.setAttribute("muted", "");
+    video.setAttribute("playsinline", "");
+    video.style.display = "none";
+    document.body.appendChild(video);
+    video.play();
+  }
+}
+
+const events = [
+  "mousedown",
+  "mousemove",
+  "keypress",
+  "scroll",
+  "touchstart",
+  "click",
+];
+events.forEach((event) => {
+  document.addEventListener(event, startIdleTimer);
+});
+
+startIdleTimer();
+
