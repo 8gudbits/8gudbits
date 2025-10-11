@@ -1,5 +1,8 @@
 /* styles/style.css */
 
+/* ####################### */
+/*  Reset and base styles  */
+/* ####################### */
 * {
     margin: 0;
     padding: 0;
@@ -36,7 +39,9 @@ body {
     font-size: var(--base-font-size);
 }
 
-/* === Parallax Background === */
+/* ##################### */
+/*  Parallax Background  */
+/* ##################### */
 #parallax {
     position: fixed;
     width: 100%;
@@ -58,7 +63,9 @@ body {
     opacity: 1;
 }
 
-/* === Custom cursor styles === */
+/* ###################### */
+/*  Custom cursor styles  */
+/* ###################### */
 .cursor {
     position: fixed;
     width: 20px;
@@ -110,7 +117,6 @@ body {
     opacity: 0.7;
 }
 
-/* === Particle effect === */
 .particle {
     position: fixed;
     pointer-events: none;
@@ -118,7 +124,9 @@ body {
     z-index: 9997;
 }
 
-/* === Scroll progress indicator === */
+/* ########################### */
+/*  Scroll progress indicator  */
+/* ########################### */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -132,7 +140,9 @@ body {
     transition: width 0.2s ease;
 }
 
-/* === Back to top button === */
+/* #################### */
+/*  Back to top button  */
+/* #################### */
 .back-to-top {
     position: fixed;
     bottom: 30px;
@@ -167,7 +177,7 @@ body {
     transform: translateY(-5px);
 }
 
-/* === Fix for mobile hover state === */
+/* Fix for mobile hover state */
 @media (hover: none) {
     .back-to-top:hover {
         background: rgba(255, 255, 255, 0.1);
@@ -175,7 +185,9 @@ body {
     }
 }
 
-/* === Navigation Container === */
+/* ############ */
+/*  Navigation  */
+/* ############ */
 .nav-container {
     position: fixed;
     top: 0;
@@ -187,7 +199,7 @@ body {
     transition: var(--transition-smooth);
 }
 
-/* === Section Selector Navigation === */
+/* Section Selector Navigation */
 .section-selector {
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(12px);
@@ -264,7 +276,7 @@ body {
     opacity: 0.2;
 }
 
-/* === Tooltip styling === */
+/* Tooltip styling */
 .nav-btn::after {
     content: attr(aria-label);
     position: absolute;
@@ -288,7 +300,9 @@ body {
     visibility: visible;
 }
 
-/* === Mobile menu === */
+/* ############# */
+/*  Mobile menu  */
+/* ############# */
 .mobile-menu-btn {
     display: none;
     background: transparent;
@@ -372,7 +386,9 @@ body {
     background: rgba(255, 59, 48, 0.1);
 }
 
-/* === Glassmorphism components === */
+/* ########################## */
+/*  Glassmorphism components  */
+/* ########################## */
 .glass-panel {
     background: var(--glass-bg);
     backdrop-filter: blur(12px);
@@ -390,7 +406,9 @@ body {
     background: var(--glass-bg);
 }
 
-/* === Layout === */
+/* ####### */
+/* Layout  */
+/* ####### */
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -405,7 +423,9 @@ header {
     margin-bottom: 1rem;
 }
 
-/* === Hero Section === */
+/* ############## */
+/*  Hero section  */
+/* ############## */
 .hero-section {
     height: 100vh;
     display: flex;
@@ -473,7 +493,7 @@ header {
     z-index: -1;
 }
 
-/* === Scroll Down Indicator === */
+/* Scroll Down Indicator */
 .scroll-indicator {
     display: flex;
     flex-direction: column;
@@ -548,7 +568,26 @@ h2::after {
     border-radius: 3px;
 }
 
-/* === Projects grid === */
+/* ############### */
+/*  About section  */
+/* ############### */
+.about {
+    text-align: center;
+    max-width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.about p {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    font-style: italic;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* ############### */
+/*  Projects grid  */
+/* ############### */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -598,7 +637,9 @@ h2::after {
     color: var(--accent-red);
 }
 
-/* === Concept badge === */
+/* ############### */
+/*  Concept badge  */
+/* ############### */
 .concept-badge {
     position: absolute;
     top: 1rem;
@@ -613,7 +654,9 @@ h2::after {
     font-weight: 600;
 }
 
-/* === Private project cards === */
+/* ####################### */
+/*  Private project cards  */
+/* ####################### */
 .private-project {
     opacity: 0.85;
     border: 1px solid rgba(255, 255, 255, 0.15);
@@ -645,7 +688,7 @@ h2::after {
     gap: 0.5rem;
 }
 
-/* === Disclaimer === */
+/* Disclaimer */
 .disclaimer {
     margin-top: 2rem;
     border-left: 4px solid rgba(255, 59, 48, 0.5);
@@ -657,22 +700,9 @@ h2::after {
     line-height: 1.6;
 }
 
-/* === About section === */
-.about {
-    text-align: center;
-    max-width: 100%;
-    margin: 0 auto;
-    position: relative;
-}
-
-.about p {
-    font-size: clamp(1.1rem, 3vw, 1.3rem);
-    font-style: italic;
-    color: var(--text-secondary);
-    line-height: 1.8;
-}
-
-/* === Tech stack === */
+/* ############ */
+/*  Tech stack  */
+/* ############ */
 .tech-grid {
     display: flex;
     flex-wrap: wrap;
@@ -707,7 +737,9 @@ h2::after {
     color: var(--text-secondary);
 }
 
-/* === Timeline === */
+/* ########## */
+/*  Timeline  */
+/* ########## */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -765,7 +797,9 @@ h2::after {
     font-size: 1em;
 }
 
-/* === Footer === */
+/* ######## */
+/*  Footer  */
+/* ######## */
 footer {
     text-align: center;
     padding: 1rem 0;
@@ -808,7 +842,9 @@ footer {
     margin-right: 0.5rem;
 }
 
-/* === Responsive design === */
+/* ################### */
+/*  Responsive design  */
+/* ################### */
 @media (max-width: 1200px) {
     :root {
         --base-font-size: 0.95rem;
@@ -879,7 +915,7 @@ footer {
         display: flex;
     }
 
-    /* == Staggered animation for mobile menu items == */
+    /* Staggered animation for mobile menu items */
     .mobile-menu.open .mobile-nav-btn:nth-child(1) {
         transition-delay: 0.1s;
     }
@@ -998,7 +1034,7 @@ footer {
     }
 }
 
-/* === For very small phones === */
+/* For very small phones */
 @media (max-width: 380px) {
     :root {
         --base-font-size: 0.75rem;
@@ -1009,7 +1045,7 @@ footer {
         line-height: 1.6;
     }
 
-    /* == Remove glass effect from about section on mobile == */
+    /* Remove glass effect from about section on mobile */
     #about .glass-panel {
         background: transparent;
         backdrop-filter: none;
@@ -1041,14 +1077,14 @@ footer {
     }
 }
 
-/* === For standard mobile phones === */
+/* For standard mobile phones */
 @media (max-width: 480px) {
     .about p {
         font-size: clamp(1rem, 3vw, 1.1rem);
         line-height: 1.7;
     }
 
-    /* == Remove glass effect from about section on mobile == */
+    /* Remove glass effect from about section on mobile */
     #about .glass-panel {
         background: transparent;
         backdrop-filter: none;
@@ -1062,7 +1098,7 @@ footer {
     }
 }
 
-/* === For tablets and larger phones - keep the glass effect === */
+/* For tablets and larger phones - keep the glass effect */
 @media (min-width: 481px) and (max-width: 768px) {
     .about p {
         font-size: clamp(1.1rem, 3vw, 1.2rem);

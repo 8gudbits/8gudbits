@@ -1,6 +1,8 @@
-/* styles/estereggs.css */
+/* styles/extras.css */
 
-/* Tooltip for GitHub Link */
+/* ##################### */
+/*  GitHub link tooltip  */
+/* ##################### */
 .github-link {
     position: relative;
 }
@@ -29,7 +31,9 @@
     visibility: visible;
 }
 
-/* Hero Toast Notification */
+/* #################### */
+/*  Hero section toast  */
+/* #################### */
 .hero-toast {
     position: fixed;
     bottom: 20px;
@@ -55,7 +59,9 @@
     visibility: visible;
 }
 
-/* About Toast Notification */
+/* ##################### */
+/*  About section toast  */
+/* ##################### */
 .about-toast {
     position: fixed;
     bottom: 20px;
@@ -81,7 +87,9 @@
     visibility: visible;
 }
 
-/* Speed Toast Notification */
+/* ########################## */
+/*  Speed toast notification  */
+/* ########################## */
 .speed-toast {
     position: fixed;
     bottom: 20px;
@@ -107,7 +115,9 @@
     visibility: visible;
 }
 
-/* Sleep Mode Animation */
+/* ###################### */
+/*  Sleep mode animation  */
+/* ###################### */
 .sleep-overlay {
     position: fixed;
     top: 0;
