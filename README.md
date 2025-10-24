@@ -52,6 +52,10 @@
     </a>
     <br>
     <a href="https://github.com/8gudbits?tab=repositories">
+      <img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-stats.svg">
+    </a>
+    <br>
+    <a href="https://github.com/8gudbits?tab=repositories">
       <img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/top-languages.svg">
     </a>
     <br>
