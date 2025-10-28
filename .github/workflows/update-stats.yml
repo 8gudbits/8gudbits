@@ -39,7 +39,7 @@ jobs:
         run: |
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-stats.svg" \
-            "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show=prs_merged,prs_merged_percentage,discussions_answered&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
+            "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show_icons=true&icon_color=3572a5&show=prs_merged,prs_merged_percentage,discussions_answered&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
             || echo "Failed to fetch GitHub Stats."
 
       - name: 5. Fetch Top Languages
@@ -60,7 +60,7 @@ jobs:
         run: |
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/activity-graph.svg" \
-            "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&custom_title=⚡%20Activity%20Graph&days=30&area=true&radius=8&hide_border=true&height=350&theme=react-dark&bg_color=050608&point=ffffff" \
+            "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&custom_title=⚡%20Activity%20Graph&days=30&area=true&radius=8&hide_border=true&height=350&theme=react-dark&bg_color=050608&color=ffffff&title_color=ffffff&line=3572a5&point=ffffff&area_color=3572a5" \
             || echo "Failed to fetch Activity Graph."
 
       - name: 8. Checkout Output Branch
