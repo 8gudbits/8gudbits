@@ -13,7 +13,7 @@
     <a href="https://discord.com/users/8gudbits" target="_blank">
       <img src="/assets/badges/discord.svg">
     </a>
-    <a href="https://www.noman.qzz.io" target="_blank">
+    <a href="https://8gudbits.github.io/www.noman" target="_blank">
       <img src="/assets/badges/website.svg">
     </a>
     <br>
@@ -47,19 +47,23 @@
   <div>
     <h2>- Trophies & Stats -</h2>
     <br>
-    <a href="https://github.com/8gudbits?tab=repositories">
+    <a href="https://8gudbits.github.io/www.noman">
       <img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-trophies.svg">
     </a>
     <br>
-    <a href="https://github.com/8gudbits?tab=repositories">
+    <a href="https://8gudbits.github.io/www.noman">
       <img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-stats.svg">
     </a>
     <br>
-    <a href="https://github.com/8gudbits?tab=repositories">
+    <a href="https://8gudbits.github.io/www.noman">
       <img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/top-languages.svg">
     </a>
     <br>
-    <a href="https://github.com/8gudbits?tab=repositories">
+    <a href="https://8gudbits.github.io/www.noman">
+      <img style="min-width: 100%;" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/github-streak.svg">
+    </a>
+    <br>
+    <a href="https://8gudbits.github.io/www.noman">
       <img width="700px" src="https://raw.githubusercontent.com/8gudbits/8gudbits/output/activity-graph.svg">
     </a>
     <br>
@@ -73,5 +77,4 @@
     <img src="/assets/svgfiles/footer_capsule.svg" style="min-width: 100%;">
   </div>
 </div>
-
 
