@@ -28,8 +28,14 @@ jobs:
           export PATH="$DENO_INSTALL/bin:$PATH"
           echo "$DENO_INSTALL/bin" >> $GITHUB_PATH
           cd ./github-profile-trophy
-          nohup deno run --allow-net --allow-env main.ts > server.log 2>&1 &
+          export PORT=8080
+          nohup deno run --allow-net --allow-env --allow-read main.ts > server.log 2>&1 &
           sleep 5
+          if ! nc -z localhost 8080; then
+            echo "Server did not start on :8080. Dumping logs:"
+            sed -n '1,200p' server.log || true
+            exit 1
+          fi
 
       - name: 4. Fetch GitHub Trophies
         run: |
