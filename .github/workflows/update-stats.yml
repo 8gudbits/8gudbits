@@ -18,33 +18,42 @@ jobs:
       - name: 1. Checkout Main Branch
         uses: actions/checkout@v3
 
-      - name: 2. Clone GitHub Profile Trophy Fork
-        run: git clone --depth 1 https://github.com/${{ github.repository_owner }}/github-profile-trophy ./github-profile-trophy
-
-      - name: 3. Start GitHub Profile Trophy Server
+      - name: 2. Fetch GitHub Trophies
         run: |
-          curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-          sudo apt-get install -y nodejs
-          npm install -g vercel
-          cd ./github-profile-trophy
-          nohup vercel dev --listen 8080 > server.log 2>&1 &
-          sleep 10
-          if ! nc -z localhost 8080; then
-            echo "Server did not start on :8080. Dumping logs:"
-            sed -n '1,200p' server.log || true
-            exit 1
-          fi
-
-      - name: 4. Fetch GitHub Trophies
-        run: |
-          mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-trophies.svg" \
-            "http://localhost:8080/api/?username=${{ github.repository_owner }}&title=MultiLanguage,Stars,Commits,Repositories,PullRequest,Followers&no-frame=true&column=6&margin-w=8&margin-h=8&theme=darkhub" \
+            "https://github-profile-trophy.vercel.app/?username=${{ github.repository_owner }}&title=MultiLanguage,Stars,Commits,Repositories,PullRequest,Followers&no-frame=true&column=6&margin-w=8&margin-h=8&theme=darkhub" \
             || echo "Failed to fetch Trophies."
-          pkill -f "deno run"
 
-      - name: 5. Generate GitHub Contributions Snake Animations
+      - name: 3. Fetch GitHub Stats
+        run: |
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
+            -o "./dist/github-stats.svg" \
+            "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show_icons=true&icon_color=3572a5&show=prs_merged,prs_merged_percentage&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
+            || echo "Failed to fetch GitHub Stats."
+
+      - name: 4. Fetch Top Languages
+        run: |
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
+            -o "./dist/top-languages.svg" \
+            "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&langs_count=14&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
+            || echo "Failed to fetch Top Languages."
+
+      - name: 5. Fetch GitHub Streak
+        run: |
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
+            -o "./dist/github-streak.svg" \
+            "https://github-readme-streak-stats-eight.vercel.app/?user=${{ github.repository_owner }}&starting_year=2022&hide_border=true&card_width=700&card_height=220&theme=highcontrast&background=050608&ring=3572a5&fire=3572a5&currStreakLabel=3572a5" \
+            || echo "Failed to fetch GitHub Streak."
+
+      - name: 6. Fetch Activity Graph
+        run: |
+          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
+            -o "./dist/activity-graph.svg" \
+            "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&custom_title=⚡%20Activity%20Graph&days=30&area=true&radius=8&hide_border=true&height=350&theme=react-dark&bg_color=050608&color=ffffff&title_color=ffffff&line=3572a5&point=ffffff&area_color=3572a5" \
+            || echo "Failed to fetch Activity Graph."
+
+      - name: 7. Generate GitHub Contributions Snake Animations
         uses: Platane/snk/svg-only@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -54,41 +63,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 6. Fetch GitHub Stats
-        run: |
-          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
-            -o "./dist/github-stats.svg" \
-            "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show_icons=true&icon_color=3572a5&show=prs_merged,prs_merged_percentage&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
-            || echo "Failed to fetch GitHub Stats."
-
-      - name: 7. Fetch Top Languages
-        run: |
-          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
-            -o "./dist/top-languages.svg" \
-            "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&langs_count=14&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
-            || echo "Failed to fetch Top Languages."
-
-      - name: 8. Fetch GitHub Streak
-        run: |
-          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
-            -o "./dist/github-streak.svg" \
-            "https://github-readme-streak-stats-eight.vercel.app/?user=${{ github.repository_owner }}&starting_year=2022&hide_border=true&card_width=700&card_height=220&theme=highcontrast&background=050608&ring=3572a5&fire=3572a5&currStreakLabel=3572a5" \
-            || echo "Failed to fetch GitHub Streak."
-
-      - name: 9. Fetch Activity Graph
-        run: |
-          curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
-            -o "./dist/activity-graph.svg" \
-            "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&custom_title=⚡%20Activity%20Graph&days=30&area=true&radius=8&hide_border=true&height=350&theme=react-dark&bg_color=050608&color=ffffff&title_color=ffffff&line=3572a5&point=ffffff&area_color=3572a5" \
-            || echo "Failed to fetch Activity Graph."
-
-      - name: 10. Checkout Output Branch
+      - name: 8. Checkout Output Branch
         uses: actions/checkout@v3
         with:
           ref: output
           path: ./output-branch
 
-      - name: 11. Restore Missing Files from Output Branch
+      - name: 9. Restore Missing Files from Output Branch
         run: |
           mkdir -p dist
           for file in github-snake.svg github-snake-dark.svg github-trophies.svg github-stats.svg top-languages.svg github-streak.svg activity-graph.svg; do
@@ -98,7 +79,7 @@ jobs:
             fi
           done
 
-      - name: 12. Deploy to Output Branch
+      - name: 10. Deploy to Output Branch
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
