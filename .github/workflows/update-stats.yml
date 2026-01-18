@@ -23,14 +23,12 @@ jobs:
 
       - name: 3. Start GitHub Profile Trophy Server
         run: |
-          curl -fsSL https://deno.land/install.sh | sh
-          export DENO_INSTALL="$HOME/.deno"
-          export PATH="$DENO_INSTALL/bin:$PATH"
-          echo "$HOME/.deno/bin" >> $GITHUB_PATH
+          curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+          sudo apt-get install -y nodejs
+          npm install -g vercel
           cd ./github-profile-trophy
-          export PORT=8080
-          nohup deno run -A api/index.ts > server.log 2>&1 &
-          sleep 5
+          nohup vercel dev --listen 8080 > server.log 2>&1 &
+          sleep 10
           if ! nc -z localhost 8080; then
             echo "Server did not start on :8080. Dumping logs:"
             sed -n '1,200p' server.log || true
