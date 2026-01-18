@@ -31,7 +31,7 @@ jobs:
           mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-stats.svg" \
-            "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show_icons=true&icon_color=3572a5&show=prs_merged,prs_merged_percentage&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
+            "https://github-readme-stats-8gudbits.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show_icons=true&icon_color=3572a5&show=prs_merged,prs_merged_percentage&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
             || echo "Failed to fetch GitHub Stats."
 
       - name: 4. Fetch Top Languages
@@ -39,7 +39,7 @@ jobs:
           mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/top-languages.svg" \
-            "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&langs_count=14&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
+            "https://github-readme-stats-8gudbits.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&langs_count=14&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
             || echo "Failed to fetch Top Languages."
 
       - name: 5. Fetch GitHub Streak
