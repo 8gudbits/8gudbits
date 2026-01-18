@@ -20,6 +20,7 @@ jobs:
 
       - name: 2. Fetch GitHub Trophies
         run: |
+          mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-trophies.svg" \
             "https://github-profile-trophy-8gudbits.vercel.app/?username=${{ github.repository_owner }}&title=MultiLanguage,Stars,Commits,Repositories,PullRequest,Followers&no-frame=true&column=6&margin-w=8&margin-h=8&theme=darkhub" \
@@ -27,6 +28,7 @@ jobs:
 
       - name: 3. Fetch GitHub Stats
         run: |
+          mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-stats.svg" \
             "https://github-readme-stats.vercel.app/api?username=${{ github.repository_owner }}&custom_title=GitHub%20Stats&show_icons=true&icon_color=3572a5&show=prs_merged,prs_merged_percentage&hide=issues,contribs&count_private=true&rank_icon=percentile&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
@@ -34,6 +36,7 @@ jobs:
 
       - name: 4. Fetch Top Languages
         run: |
+          mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/top-languages.svg" \
             "https://github-readme-stats.vercel.app/api/top-langs/?username=${{ github.repository_owner }}&layout=compact&langs_count=14&hide_border=true&card_width=700&bg_color=050608&title_color=ffffff&text_color=ffffff" \
@@ -41,6 +44,7 @@ jobs:
 
       - name: 5. Fetch GitHub Streak
         run: |
+          mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/github-streak.svg" \
             "https://github-readme-streak-stats-eight.vercel.app/?user=${{ github.repository_owner }}&starting_year=2022&hide_border=true&card_width=700&card_height=220&theme=highcontrast&background=050608&ring=3572a5&fire=3572a5&currStreakLabel=3572a5" \
@@ -48,6 +52,7 @@ jobs:
 
       - name: 6. Fetch Activity Graph
         run: |
+          mkdir -p dist
           curl -f --connect-timeout 30 --retry 3 --retry-delay 5 \
             -o "./dist/activity-graph.svg" \
             "https://github-readme-activity-graph.vercel.app/graph?username=${{ github.repository_owner }}&custom_title=⚡%20Activity%20Graph&days=30&area=true&radius=8&hide_border=true&height=350&theme=react-dark&bg_color=050608&color=ffffff&title_color=ffffff&line=3572a5&point=ffffff&area_color=3572a5" \
